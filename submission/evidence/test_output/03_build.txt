@@ -1,0 +1,14 @@
+$ npm run build
+
+> smart-campus-room-availability@0.9.0 build
+> tsc --noEmit && vite build
+
+vite v5.4.8 building for production...
+transforming...
+✓ 1574 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.43 kB │ gzip:  0.29 kB
+dist/assets/index-D_YiPbIh.css   14.50 kB │ gzip:  3.47 kB
+dist/assets/index-Z5avtWSF.js   158.83 kB │ gzip: 50.70 kB
+✓ built in 747ms

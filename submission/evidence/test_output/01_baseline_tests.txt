@@ -1,0 +1,27 @@
+$ npm test   # baseline 38413e0 + U01-U13 characterization tests
+
+> smart-campus-room-availability@0.9.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v2.1.2 /Users/almansurbajdildanov/Desktop/Assignment_04/smart-campus
+
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U01 AC1 past time (start before now=540) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U02 AC1 start exactly at now is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U03 AC1 reversed interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U04 AC1 zero-length interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U05 AC2 121-minute duration is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U06 AC2 exactly 120 minutes is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U07 AC3 blocked room is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U08 AC4 overlap is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U09 AC4 touching the end of a booking (660-720) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U10 AC4 touching the start of a booking (550-600) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U11 AC1 outside the day (end 1441) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U12 AC6 empty start gives a clear message
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U13 AC5 checking twice gives the same answer and the booking list is unchanged
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  23:32:57
+   Duration  713ms (transform 27ms, setup 0ms, collect 122ms, tests 120ms, environment 254ms, prepare 38ms)
+

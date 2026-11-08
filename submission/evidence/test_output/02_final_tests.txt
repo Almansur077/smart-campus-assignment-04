@@ -1,0 +1,51 @@
+$ npm test   # final version
+
+> smart-campus-room-availability@0.9.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v2.1.2 /Users/almansurbajdildanov/Desktop/Assignment_04/smart-campus
+
+ ✓ src/ui/parse.test.ts > UI input parsing > P01 required fields, minutes and attendees parsing
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A01 AC1 start before now is rejected
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A02 AC1 reversed interval is rejected
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A03 AC1 non-integer and out-of-day times are rejected
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A04 AC2 boundary: exactly 120 min allowed, 121 rejected
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A05 AC3 blocked room is rejected
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A06 AC4 boundary: touching is allowed, overlapping by 1 minute is rejected
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A07 AC5 checking does not mutate the frozen catalog and repeats the same answer
+ ✓ src/domain/availability.test.ts > AC1-AC5 regression on the domain rule > A08 uses the chosen room bookings, not another room data
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > C01 catalog has at least four fictional rooms with all required fields and unique ids
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F1a exact capacity is enough (30 attendees -> B-204 with 30 seats is included)
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F1b insufficient capacity is excluded (31 attendees -> B-204 removed)
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F2a room must contain ALL selected equipment, not just one
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F2b no equipment selected keeps every room that fits
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F3 blocked room can be listed but is never reported as available
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F4 impossible requirements give an empty list (no crash)
+ ✓ src/domain/filter.test.ts > Room catalog and filtering F1-F5 > F-immutability filtering returns a new array and leaves the catalog unchanged
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I01 F1 capacity filter: 30 shows B-204 and A-101, 31 hides B-204
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I02 F2 equipment filter needs ALL selected items
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I03 F4 empty state when nothing matches, and the check button is disabled
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I04 F5 switching room refreshes the result with the new room bookings
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I05 F3 a blocked catalog room is reported unavailable in the UI
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I06 filtering out the selected room hides the stale result and selects the first match
+ ✓ tests/rooms.ui.test.tsx > UI: room catalog, filters and switching > I07 invalid attendees shows a clear message
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U01 AC1 past time (start before now=540) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U02 AC1 start exactly at now is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U03 AC1 reversed interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U04 AC1 zero-length interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U05 AC2 121-minute duration is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U06 AC2 exactly 120 minutes is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U07 AC3 blocked room is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U08 AC4 overlap is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U09 AC4 touching the end of a booking (660-720) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U10 AC4 touching the start of a booking (550-600) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U11 AC1 outside the day (end 1441) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U12 AC6 empty start gives a clear message
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U13 AC5 checking twice gives the same answer and the booking list is unchanged
+
+ Test Files  5 passed (5)
+      Tests  37 passed (37)
+   Start at  23:35:03
+   Duration  1.07s (transform 157ms, setup 0ms, collect 493ms, tests 357ms, environment 1.47s, prepare 205ms)
+
